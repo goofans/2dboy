@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<project-file xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.radixlive.com/public/schemas/radix/1.0/Project.xsd">
+	<project uuid="{CD78C88E-D6DB-402D-83BD-F47736FD3802}">
+		<version>1</version>
+		<display-name>tinyxml</display-name>
+		<aliases>
+			<alias uuid="{C7041DD1-9E80-4343-9A85-B512EFB67837}">UUID_ProjectFilesGroup</alias>
+			<alias uuid="{B97971CD-429D-412B-AA96-1C450A21E53D}">CATID_PromotedFiles</alias>
+			<alias uuid="{101B1F51-64F4-4F61-8325-B79F0341E732}">Templates</alias>
+			<alias uuid="{4C245B36-11F1-4f8d-B335-9D0D3796FC1F}">PLATFORM_RevolutionSettings</alias>
+			<alias uuid="{69AC1A2A-F39A-4f4c-838A-E63496F95758}">UUID_TargetCommon</alias>
+			<alias uuid="{b6fbe68c-b39d-11da-a3c8-00c04f28d986}">UUID_BuildAllLinkerCommon</alias>
+			<alias uuid="{69fd0c97-a3f4-11da-882e-00c04f28d986}">BuildFslCompilerCommon40</alias>
+			<alias uuid="{121E6F7E-B39E-11DA-9B03-00C04F28D986}">Dictionary</alias>
+			<alias uuid="{A7ABC55B-8534-4865-A8FF-A9F60CA637EA}">Dictionary2</alias>
+		</aliases>
+		<settings>
+			<setting entry="toolChain" uuid-alias="PLATFORM_RevolutionSettings">
+				<simple>library.static</simple>
+			</setting>
+			<setting entry="dynamicTargetsPicklist" uuid-alias="UUID_TargetCommon">
+				<simple>{B2968A78-4023-4093-A4CE-A21147F39630}</simple>
+			</setting>
+			<!-- C++ specific settings -->
+			<setting entry="forceC99Extensions" uuid-alias="BuildFslCompilerCommon40">
+				<simple>false</simple>
+			</setting>
+			<setting entry="booleans" uuid-alias="BuildFslCompilerCommon40">
+				<simple>true</simple>
+			</setting>
+			<setting entry="wchar_t" uuid-alias="BuildFslCompilerCommon40">
+				<simple>true</simple>
+			</setting>
+			<!-- End of C++ specific settings -->
+			<setting entry="runtimeTypeInfo" uuid-alias="BuildFslCompilerCommon40">
+				<simple>true</simple>
+			</setting>
+		</settings>
+		<files>
+			<file file-tag="fsl-4.x.Nintendo-Wii-3.1.x.rxtpo:1">
+				<path>${ProductInstallRoot}/Nintendo Revolution/Templates/Settings/fsl-4.x.Nintendo-Wii-3.1.x.rxtpo</path>
+			</file>
+			<file file-tag="tinyxmlparser.cpp:1">
+				<path>${Project}/../tinyxmlparser.cpp</path>
+			</file>
+			<file file-tag="tinystr.cpp:1">
+				<path>${Project}/../tinystr.cpp</path>
+			</file>
+			<file file-tag="tinystr.h:1">
+				<path>${Project}/../tinystr.h</path>
+			</file>
+			<file file-tag="tinyxml.cpp:1">
+				<path>${Project}/../tinyxml.cpp</path>
+			</file>
+			<file file-tag="tinyxml.h:1">
+				<path>${Project}/../tinyxml.h</path>
+			</file>
+			<file file-tag="tinyxmlerror.cpp:1">
+				<path>${Project}/../tinyxmlerror.cpp</path>
+			</file>
+		</files>
+		<group-roots>
+			<group-root category-alias="UUID_ProjectFilesGroup" depth="0" root-group-tag="UUID_ProjectFilesGroup:1">
+				<group-items>
+					<file-ref>tinyxml.h:1</file-ref>
+					<file-ref>tinyxml.cpp:1</file-ref>
+					<file-ref>tinystr.h:1</file-ref>
+					<file-ref>tinystr.cpp:1</file-ref>
+					<file-ref>tinyxmlparser.cpp:1</file-ref>
+					<file-ref>tinyxmlerror.cpp:1</file-ref>
+				</group-items>
+			</group-root>
+			<group-root category-alias="CATID_PromotedFiles" depth="1" instance-alias="Templates" root-group-tag="CATID_PromotedFiles:1">
+				<file-refs>
+					<file-ref>fsl-4.x.Nintendo-Wii-3.1.x.rxtpo:1</file-ref>
+				</file-refs>
+			</group-root>
+		</group-roots>
+		<targets>
+			<target>
+				<name>Debug</name>
+				<settings>
+					<setting entry="userCompileSwitches" uuid-alias="Dictionary">
+						<simple>-define GOO_PLATFORM_WII</simple>
+					</setting>
+				</settings>
+			</target>
+			<target>
+				<name>Release</name>
+				<settings>
+					<setting entry="userCompileSwitches" uuid-alias="Dictionary">
+						<simple>-define GOO_PLATFORM_WII</simple>
+					</setting>
+				</settings>
+			</target>
+			<target>
+				<name>Debug NAND</name>
+				<settings>
+					<setting entry="userCompileSwitches" uuid-alias="Dictionary">
+						<simple>-DNANDAPP -define GOO_PLATFORM_WII</simple>
+					</setting>
+					<setting entry="debugConnection" uuid-alias="Dictionary2">
+						<simple>NDEV_NAND</simple>
+					</setting>
+				</settings>
+			</target>
+			<target>
+				<name>Release NAND</name>
+				<settings>
+					<setting entry="userCompileSwitches" uuid-alias="Dictionary">
+						<simple>-DNANDAPP -define GOO_PLATFORM_WII</simple>
+					</setting>
+					<setting entry="debugConnection" uuid-alias="Dictionary2">
+						<simple>NDEV_NAND</simple>
+					</setting>
+				</settings>
+			</target>
+			<target>
+				<name>Release Final</name>
+				<settings>
+					<setting entry="userCompileSwitches" uuid-alias="Dictionary">
+						<simple>-define GOO_CONFIG_FINAL -define GOO_PLATFORM_WII</simple>
+					</setting>
+				</settings>
+			</target>
+			<target>
+				<name>Release NAND Final</name>
+				<settings>
+					<setting entry="userCompileSwitches" uuid-alias="Dictionary">
+						<simple>-DNANDAPP -define GOO_CONFIG_FINAL -define GOO_PLATFORM_WII</simple>
+					</setting>
+					<setting entry="debugConnection" uuid-alias="Dictionary2">
+						<simple>NDEV_NAND</simple>
+					</setting>
+				</settings>
+			</target>
+		</targets>
+		<extensions/>
+		<cached-files/>
+	</project>
+</project-file>
